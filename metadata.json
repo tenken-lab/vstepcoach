@@ -1,0 +1,6 @@
+{
+  "name": "VSTEP Mindmap Vocabulary Coach",
+  "description": "Hỗ trợ học từ vựng VSTEP B1, B2 qua sơ đồ tư duy (mindmap) tương tác và các bài luyện tập Speaking, Writing chấm điểm bởi AI.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
