@@ -148,21 +148,28 @@ export default function EssayCoach({ onBackToHome }: EssayCoachProps) {
   };
 
   const getFullEnglishOfSentence = (sentence: Sentence): string => {
-    return sentence.segments.map((seg) => seg.text).join("");
+    return sentence.segments
+      .map((seg) => seg.text)
+      .join("")
+      .replace(/\s+/g, " ")
+      .trim();
   };
 
   const checkAnswer = () => {
     if (!generatedEssay) return;
     const currentSection = generatedEssay.sections[currentSectionKey];
     const sentence = currentSection.sentences[currentSentenceIdx];
-    const target = getFullEnglishOfSentence(sentence).trim();
+    const target = getFullEnglishOfSentence(sentence);
     
     // Normalize comparison: lowercase, trim, remove double spaces, and ignore final periods/commas slightly
     const cleanTyped = studentInput.trim().toLowerCase().replace(/\s+/g, " ");
     const cleanTarget = target.trim().toLowerCase().replace(/\s+/g, " ");
 
     const simplify = (str: string) => {
-      return str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "").trim();
+      return str
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
     };
 
     const perfectMatch = cleanTyped === cleanTarget;
@@ -194,24 +201,67 @@ export default function EssayCoach({ onBackToHome }: EssayCoachProps) {
     }
   };
 
+  const diffCharacters = (typed: string, target: string) => {
+    const n = target.length;
+    const m = typed.length;
+    
+    // dp[i][j] will store the length of LCS
+    const dp: number[][] = Array.from({ length: n + 1 }, () => Array(m + 1).fill(0));
+    
+    for (let i = 1; i <= n; i++) {
+      for (let j = 1; j <= m; j++) {
+        if (target[i - 1].toLowerCase() === typed[j - 1].toLowerCase()) {
+          dp[i][j] = dp[i - 1][j - 1] + 1;
+        } else {
+          dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+        }
+      }
+    }
+    
+    let i = n;
+    let j = m;
+    const result: { char: string; status: "correct" | "incorrect" | "missing" }[] = [];
+    
+    while (i > 0 || j > 0) {
+      if (i > 0 && j > 0 && target[i - 1].toLowerCase() === typed[j - 1].toLowerCase()) {
+        result.push({ char: target[i - 1], status: "correct" });
+        i--;
+        j--;
+      } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+        // Extra character typed in `typed`. If we still have some target characters, let's align
+        if (i > 0) {
+          result.push({ char: target[i - 1], status: "incorrect" });
+          i--;
+          j--;
+        } else {
+          j--;
+        }
+      } else {
+        // target character is missing
+        result.push({ char: target[i - 1], status: "missing" });
+        i--;
+      }
+    }
+    
+    return result.reverse();
+  };
+
   const renderDiffFeedback = (typed: string, target: string) => {
-    const chars = target.split("");
-    const typedChars = typed.split("");
+    const diffs = diffCharacters(typed, target);
     return (
       <div className="flex flex-wrap gap-0.5 font-mono text-sm bg-slate-900 text-slate-100 p-4 rounded-xl mt-3 shadow-inner select-none border border-slate-800">
-        {chars.map((char, i) => {
-          const typedChar = typedChars[i];
-          let color = "text-slate-500"; // not typed yet
-          if (typedChar !== undefined) {
-            if (typedChar.toLowerCase() === char.toLowerCase()) {
-              color = "text-emerald-400";
-            } else {
-              color = "text-rose-400 underline decoration-rose-500 decoration-2 font-bold bg-rose-950/40 px-0.5 rounded";
-            }
+        {diffs.map((item, idx) => {
+          let color = "text-slate-500";
+          if (item.status === "correct") {
+            color = "text-emerald-400 font-semibold";
+          } else if (item.status === "incorrect") {
+            color = "text-rose-400 underline decoration-rose-500 decoration-2 font-bold bg-rose-950/40 px-0.5 rounded";
+          } else if (item.status === "missing") {
+            color = "text-amber-400/80 underline decoration-amber-500/50 decoration-1 bg-amber-950/20 px-0.5 rounded";
           }
           return (
-            <span key={i} className={color}>
-              {char === " " ? "\u00A0" : char}
+            <span key={idx} className={color}>
+              {item.char === " " ? "\u00A0" : item.char}
             </span>
           );
         })}
@@ -722,7 +772,7 @@ export default function EssayCoach({ onBackToHome }: EssayCoachProps) {
                       </span>
                       {renderDiffFeedback(studentInput, fullEnglish)}
                       <p className="text-[10px] text-slate-400 font-semibold italic">
-                        Mẹo: Các chữ màu đỏ biểu thị phần viết sai hoặc thiếu so với đáp án gốc. Màu xanh đại diện cho ký tự chính xác.
+                        Mẹo: Các chữ màu xanh lá đại diện cho ký tự chính xác. Màu đỏ biểu thị ký tự viết sai, và màu vàng biểu thị ký tự bị viết thiếu so với đáp án gốc.
                       </p>
                     </div>
                   )}

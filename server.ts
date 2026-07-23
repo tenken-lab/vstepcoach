@@ -1795,7 +1795,7 @@ ${essayType === "advantages_disadvantages" ? `
   5. "This can be shown by the example that [example2]." (Fixed "This can be shown by the example that " + AI completed example2)
 - Conclusion (Kết bài):
   1. "In conclusion, there are two sides to everything, and this situation is not an exception." (Fixed)
-  2. "The [topic] plays a crucial part in our life." (Fixed + Topic variable)
+  2. "While it offers certain benefits, its drawbacks should not be overlooked." (Fixed)
   3. "People should have further considerations on this issue." (Fixed)
 ` : ""}
 
@@ -2239,7 +2239,7 @@ function getLocalFallbackStructuredEssay(essayType: string, userInput: any) {
           title: "Kết bài (Conclusion)",
           sentences: [
             { id: "c1", vietnamese: "Tóm lại, mọi thứ luôn có hai mặt, và trường hợp này cũng không ngoại lệ.", segments: [{ text: "In conclusion, there are two sides to everything, and this situation is not an exception.", isFixed: true }] },
-            { id: "c2", vietnamese: `${topic} đóng một vai trò quan trọng trong cuộc sống của chúng ta.`, segments: [{ text: "The ", isFixed: true }, { text: topic, isFixed: false }, { text: " plays a crucial part in our life.", isFixed: true }] },
+            { id: "c2", vietnamese: "Mặc dù nó mang lại những lợi ích nhất định, nhưng không nên bỏ qua những hạn chế của nó.", segments: [{ text: "While it offers certain benefits, its drawbacks should not be overlooked.", isFixed: true }] },
             { id: "c3", vietnamese: "Mọi người nên có những cân nhắc thêm về vấn đề này.", segments: [{ text: "People should have further considerations on this issue.", isFixed: true }] }
           ]
         }
