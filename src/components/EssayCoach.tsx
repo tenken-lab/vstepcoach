@@ -62,13 +62,38 @@ export default function EssayCoach({ onBackToHome }: EssayCoachProps) {
 
   const [apiError, setApiError] = useState<string | null>(null);
 
-  // Helper to get total sentences in an essay
+  const getFullEnglishOfSentence = (sentence: Sentence): string => {
+    return sentence.segments
+      .map((seg) => seg.text)
+      .join("")
+      .replace(/\s+/g, " ")
+      .trim();
+  };
+
+  // Helpers to get counts
   const getTotalSentencesCount = (essay: GeneratedEssay) => {
     return (
       essay.sections.intro.sentences.length +
       essay.sections.body1.sentences.length +
       essay.sections.body2.sentences.length +
       essay.sections.conclusion.sentences.length
+    );
+  };
+
+  const getSectionWordsCount = (section: { sentences: Sentence[] }) => {
+    return section.sentences.reduce((sum, sent) => {
+      const fullEng = getFullEnglishOfSentence(sent);
+      const words = fullEng.trim().split(/\s+/).filter(Boolean);
+      return sum + words.length;
+    }, 0);
+  };
+
+  const getTotalWordsCount = (essay: GeneratedEssay) => {
+    return (
+      getSectionWordsCount(essay.sections.intro) +
+      getSectionWordsCount(essay.sections.body1) +
+      getSectionWordsCount(essay.sections.body2) +
+      getSectionWordsCount(essay.sections.conclusion)
     );
   };
 
@@ -145,14 +170,6 @@ export default function EssayCoach({ onBackToHome }: EssayCoachProps) {
     setIsCorrect(false);
     setShowHint(false);
     setStep("practice");
-  };
-
-  const getFullEnglishOfSentence = (sentence: Sentence): string => {
-    return sentence.segments
-      .map((seg) => seg.text)
-      .join("")
-      .replace(/\s+/g, " ")
-      .trim();
   };
 
   const checkAnswer = () => {
@@ -355,12 +372,12 @@ export default function EssayCoach({ onBackToHome }: EssayCoachProps) {
 
                 <div className="flex gap-2.5 items-start">
                   <span className="w-5 h-5 rounded bg-amber-200 text-amber-800 flex items-center justify-center font-black shrink-0">2</span>
-                  <p className="pt-0.5">Điền Cụm danh từ chỉ chủ đề hoặc nội dung yêu cầu tương ứng vào ô trống.</p>
+                  <p className="pt-0.5">Chọn dạng dàn ý theo đúng thể loại của đề bài.</p>
                 </div>
 
                 <div className="flex gap-2.5 items-start">
                   <span className="w-5 h-5 rounded bg-amber-200 text-amber-800 flex items-center justify-center font-black shrink-0">3</span>
-                  <p className="pt-0.5">Chọn dạng dàn ý theo đúng thể loại của đề bài.</p>
+                  <p className="pt-0.5">Điền Cụm danh từ chỉ chủ đề hoặc nội dung yêu cầu tương ứng vào ô trống.</p>
                 </div>
 
                 <div className="flex gap-2.5 items-start">
@@ -511,8 +528,10 @@ export default function EssayCoach({ onBackToHome }: EssayCoachProps) {
                   </h3>
                 </div>
                 <div className="shrink-0 text-right">
-                  <span className="inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-bold">
-                    Tổng cộng: {getTotalSentencesCount(generatedEssay)} câu
+                  <span className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-full text-xs font-bold border border-slate-200/50">
+                    <span>Tổng cộng: {getTotalSentencesCount(generatedEssay)} câu</span>
+                    <span className="text-slate-300">|</span>
+                    <span className="text-emerald-700 font-extrabold">{getTotalWordsCount(generatedEssay)} từ</span>
                   </span>
                 </div>
               </div>
@@ -622,7 +641,7 @@ export default function EssayCoach({ onBackToHome }: EssayCoachProps) {
                           </span>
                         ) : (
                           <span className="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded-full">
-                            {totalSents} câu
+                            {totalSents} câu • {getSectionWordsCount(section)} từ
                           </span>
                         )}
                       </div>
