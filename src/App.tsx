@@ -42,17 +42,7 @@ export default function App() {
   };
 
   const selectedTopic = vstepTopics.find((t) => t.id === selectedTopicId) || vstepTopics[0];
-
-  // Group topics into Day 1, Day 2, Day 3 as in PDF Page 1
-  const day1Topics = ["transport", "countryside", "city", "crime"];
-  const day2Topics = ["hobbies", "languages", "health", "house-flat", "machine"];
-  const day3Topics = ["environment", "technology", "holiday", "people", "job-study"];
-
-  const getTopicDayLabel = (id: string) => {
-    if (day1Topics.includes(id)) return "Buổi 1";
-    if (day2Topics.includes(id)) return "Buổi 2";
-    return "Buổi 3";
-  };
+  const selectedTopicIndex = vstepTopics.findIndex((t) => t.id === selectedTopic.id) + 1;
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans antialiased pb-12 selection:bg-emerald-100 selection:text-emerald-900">
@@ -128,106 +118,35 @@ export default function App() {
                     </h2>
                   </div>
 
-                  {/* Grouped Lists (Buổi 1, 2, 3) */}
-                  <div className="flex flex-col gap-4">
-                    {/* Day 1 Section */}
-                    <div>
-                      <span className="text-[10px] font-bold text-amber-600 uppercase bg-amber-50 px-2 py-1 rounded-md mb-2 inline-block">
-                        Buổi 1: Transport, Country, City, Crime
-                      </span>
-                      <div className="flex flex-col gap-1 pl-1">
-                        {vstepTopics
-                          .filter((t) => day1Topics.includes(t.id))
-                          .map((topic) => (
-                            <button
-                              key={topic.id}
-                              type="button"
-                              onClick={() => setSelectedTopicId(topic.id)}
-                              className={`flex items-center justify-between p-2.5 rounded-xl text-left text-xs font-semibold transition-all ${
-                                selectedTopicId === topic.id
-                                  ? "bg-emerald-600 text-white shadow-xs"
-                                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                              }`}
-                            >
-                              <div className="flex items-center gap-2">
-                                {getIconComponent(topic.icon, 14)}
-                                <span>{topic.title}</span>
-                              </div>
-                              <span className={`text-[10px] px-1.5 py-0.5 rounded-md ${
-                                selectedTopicId === topic.id ? "bg-emerald-700 text-emerald-100" : "bg-gray-100 text-gray-500"
-                              }`}>
-                                {topic.titleVi}
-                              </span>
-                            </button>
-                          ))}
-                      </div>
-                    </div>
-
-                    {/* Day 2 Section */}
-                    <div>
-                      <span className="text-[10px] font-bold text-blue-600 uppercase bg-blue-50 px-2 py-1 rounded-md mb-2 inline-block">
-                        Buổi 2: Hobbies, Lang, Health, House, Machine
-                      </span>
-                      <div className="flex flex-col gap-1 pl-1">
-                        {vstepTopics
-                          .filter((t) => day2Topics.includes(t.id))
-                          .map((topic) => (
-                            <button
-                              key={topic.id}
-                              type="button"
-                              onClick={() => setSelectedTopicId(topic.id)}
-                              className={`flex items-center justify-between p-2.5 rounded-xl text-left text-xs font-semibold transition-all ${
-                                selectedTopicId === topic.id
-                                  ? "bg-emerald-600 text-white shadow-xs"
-                                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                              }`}
-                            >
-                              <div className="flex items-center gap-2">
-                                {getIconComponent(topic.icon, 14)}
-                                <span>{topic.title}</span>
-                              </div>
-                              <span className={`text-[10px] px-1.5 py-0.5 rounded-md ${
-                                selectedTopicId === topic.id ? "bg-emerald-700 text-emerald-100" : "bg-gray-100 text-gray-500"
-                              }`}>
-                                {topic.titleVi}
-                              </span>
-                            </button>
-                          ))}
-                      </div>
-                    </div>
-
-                    {/* Day 3 Section */}
-                    <div>
-                      <span className="text-[10px] font-bold text-indigo-600 uppercase bg-indigo-50 px-2 py-1 rounded-md mb-2 inline-block">
-                        Buổi 3: Env, Tech, Holiday, People, Job
-                      </span>
-                      <div className="flex flex-col gap-1 pl-1">
-                        {vstepTopics
-                          .filter((t) => day3Topics.includes(t.id))
-                          .map((topic) => (
-                            <button
-                              key={topic.id}
-                              type="button"
-                              onClick={() => setSelectedTopicId(topic.id)}
-                              className={`flex items-center justify-between p-2.5 rounded-xl text-left text-xs font-semibold transition-all ${
-                                selectedTopicId === topic.id
-                                  ? "bg-emerald-600 text-white shadow-xs"
-                                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                              }`}
-                            >
-                              <div className="flex items-center gap-2">
-                                {getIconComponent(topic.icon, 14)}
-                                <span>{topic.title}</span>
-                              </div>
-                              <span className={`text-[10px] px-1.5 py-0.5 rounded-md ${
-                                selectedTopicId === topic.id ? "bg-emerald-700 text-emerald-100" : "bg-gray-100 text-gray-500"
-                              }`}>
-                                {topic.titleVi}
-                              </span>
-                            </button>
-                          ))}
-                      </div>
-                    </div>
+                  {/* Unified List of 14 Topics */}
+                  <div className="flex flex-col gap-1">
+                    {vstepTopics.map((topic, idx) => (
+                      <button
+                        key={topic.id}
+                        type="button"
+                        onClick={() => setSelectedTopicId(topic.id)}
+                        className={`flex items-center justify-between p-2.5 rounded-xl text-left text-xs font-semibold transition-all cursor-pointer ${
+                          selectedTopicId === topic.id
+                            ? "bg-emerald-600 text-white shadow-xs"
+                            : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className={`text-[10px] font-extrabold px-1.5 py-0.5 rounded-md ${
+                            selectedTopicId === topic.id ? "bg-emerald-700 text-emerald-100" : "bg-gray-100 text-gray-500"
+                          }`}>
+                            #{idx + 1}
+                          </span>
+                          {getIconComponent(topic.icon, 14)}
+                          <span className="truncate">{topic.title}</span>
+                        </div>
+                        <span className={`text-[10px] px-1.5 py-0.5 rounded-md shrink-0 ml-1 ${
+                          selectedTopicId === topic.id ? "bg-emerald-700 text-emerald-100" : "bg-gray-100 text-gray-500"
+                        }`}>
+                          {topic.titleVi}
+                        </span>
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -243,7 +162,7 @@ export default function App() {
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs font-extrabold uppercase text-emerald-600 tracking-wider">
-                          {getTopicDayLabel(selectedTopic.id)}
+                          Chủ điểm {selectedTopicIndex} / 14
                         </span>
                         <span className="text-gray-300">•</span>
                         <h2 className="text-2xl font-extrabold text-gray-900 tracking-tight">

@@ -149,8 +149,38 @@ const rawVstepTopics: VstepTopic[] = [
       id: "transport-root",
       label: "Public transport",
       labelVi: "Phương tiện công cộng",
-      notes: "Bus, train, coach, airplane (xe khách)",
       children: [
+        {
+          id: "transport-vehicles",
+          label: "Vehicles",
+          labelVi: "Các loại phương tiện",
+          children: [
+            {
+              id: "transport-v-bus",
+              label: "Bus",
+              labelVi: "Xe buýt",
+              example: "The bus is the most common and affordable public vehicle in cities."
+            },
+            {
+              id: "transport-v-train",
+              label: "Train",
+              labelVi: "Tàu hỏa / Tàu điện",
+              example: "Travelling by train is fast and helps avoid traffic jams."
+            },
+            {
+              id: "transport-v-coach",
+              label: "Coach",
+              labelVi: "Xe khách",
+              example: "Taking the coach allows me to take a nap after a tiring workday."
+            },
+            {
+              id: "transport-v-airplane",
+              label: "Airplane",
+              labelVi: "Máy bay",
+              example: "Airplanes are ideal when travelling long distances or going abroad."
+            }
+          ]
+        },
         {
           id: "transport-advantages",
           label: "Advantages (Thuận lợi)",
@@ -198,7 +228,7 @@ const rawVstepTopics: VstepTopic[] = [
                   id: "transport-adv-comfort-view",
                   label: "Enjoy the roadside view",
                   labelVi: "Ngắm cảnh ven đường",
-                  notes: "Quan sát sinh hoạt của mọi người",
+                  notes: "observe daily activities (quan sát sinh hoạt của mọi người)",
                   example: "It is interesting to enjoy the roadside view and watch daily activities of people."
                 }
               ]
@@ -207,7 +237,7 @@ const rawVstepTopics: VstepTopic[] = [
               id: "transport-adv-convenient",
               label: "Be convenient and fast",
               labelVi: "Tiện lợi và nhanh chóng",
-              notes: "when travel abroad/ far: airplane",
+              notes: "when travel abroad/far: airplane (khi đi xa/ra nước ngoài: máy bay)",
               children: [
                 {
                   id: "transport-adv-convenient-wherever",
@@ -220,7 +250,7 @@ const rawVstepTopics: VstepTopic[] = [
               id: "transport-adv-cheap",
               label: "Cheap (bus)",
               labelVi: "Giá rẻ (xe buýt)",
-              notes: "Học sinh, sinh viên được giảm giá vé khi mang theo thẻ",
+              notes: "student ticket discount (thẻ học sinh/sinh viên được giảm giá vé)",
               example: "Bus fare is very cheap, and students can get a discount with their student ID card."
             }
           ]
@@ -300,7 +330,7 @@ const rawVstepTopics: VstepTopic[] = [
           id: "city-places",
           label: "Places (Địa điểm)",
           labelVi: "Các địa điểm trong thành phố",
-          notes: "restaurants, cinemas, shopping malls, skyscrapers (tòa nhà chọc trời)",
+          notes: "restaurants (nhà hàng), cinemas (rạp chiếu phim), shopping malls (trung tâm thương mại), skyscrapers (tòa nhà chọc trời)",
           example: "Big cities are full of towering skyscrapers, high-end shopping malls, and fancy restaurants."
         },
         {
@@ -312,28 +342,28 @@ const rawVstepTopics: VstepTopic[] = [
               id: "city-adv-interesting",
               label: "City life is interesting",
               labelVi: "Cuộc sống thú vị, sôi nổi",
-              notes: "have many entertainments (nhiều khu vui chơi) -> restaurants, parks, cinemas",
+              notes: "have many entertainments (nhiều khu giải trí), restaurants (nhà hàng), parks (công viên), cinemas (rạp chiếu phim)",
               example: "City life is highly interesting because we have access to many places of entertainment."
             },
             {
               id: "city-adv-convenient",
               label: "City life is more convenient",
               labelVi: "Tiện lợi hơn",
-              notes: "live near hospitals (health), schools (education), supermarkets (thuận lợi học tập, chăm sóc sức khỏe)",
+              notes: "live near hospitals (sống gần bệnh viện), live near schools (sống gần trường học), live near supermarkets (sống gần siêu thị)",
               example: "Living in the city is very convenient since you are always near major hospitals and schools."
             },
             {
               id: "city-adv-income",
               label: "Have higher incomes",
               labelVi: "Thu nhập cao hơn",
-              notes: "save more money (tiết kiệm gửi về gia đình) & buy what I like",
+              notes: "save more money (tiết kiệm nhiều tiền hơn), buy what I like (mua những gì mình thích)",
               example: "Many people move to the city to secure a higher income and save more money for their families."
             },
             {
               id: "city-adv-jobs",
               label: "Have more career opportunities",
               labelVi: "Nhiều cơ hội nghề nghiệp",
-              notes: "Diversity of fields, lots of choices, better salary, advance experiences & skills, enrich knowledge",
+              notes: "diversity of fields (đa dạng lĩnh vực), lots of choices (nhiều sự lựa chọn), better salary (mức lương tốt hơn), advance experiences & skills (nâng cao kinh nghiệm & kỹ năng), enrich knowledge (trau dồi kiến thức)",
               example: "Cities offer more career opportunities with better salaries and chances to advance your skills."
             }
           ]
@@ -347,7 +377,7 @@ const rawVstepTopics: VstepTopic[] = [
               id: "city-dis-polluted",
               label: "It has polluted environment",
               labelVi: "Môi trường bị ô nhiễm",
-              notes: "have polluted air, fewer trees, rivers, mountains. Traffic is heavy (crowded at rush hours)",
+              notes: "have polluted air (không khí ô nhiễm), fewer trees (ít cây xanh), rivers & mountains (sông núi), heavy traffic (giao thông đông đúc)",
               example: "The metropolitan area has a polluted environment with heavy traffic and scarce trees."
             },
             {
@@ -361,7 +391,7 @@ const rawVstepTopics: VstepTopic[] = [
               id: "city-dis-dangerous",
               label: "City life is more dangerous",
               labelVi: "Cuộc sống nguy hiểm hơn",
-              notes: "Tỉ lệ tội phạm cao hơn (have more crimes). Dễ bị thu hút bởi tệ nạn xã hội (drinking, drug, gambling)",
+              notes: "higher crime rate (tỉ lệ tội phạm cao hơn), easy to be lured into social evils (dễ sa vào tệ nạn xã hội), drinking (nhậu nhẹt), drugs (ma túy), gambling (cờ bạc)",
               example: "City life can be dangerous as residents are easily attracted by social evils like drugs and gambling."
             }
           ]
@@ -388,7 +418,7 @@ const rawVstepTopics: VstepTopic[] = [
           id: "country-places",
           label: "Places (Đặc trưng)",
           labelVi: "Hình ảnh đồng quê, thiên nhiên",
-          notes: "rice fields, rivers, mountains, cánh đồng lúa",
+          notes: "rice fields (cánh đồng lúa), rivers (dòng sông), mountains (ngọn núi)",
           example: "The countryside is characterized by endless rice fields, winding rivers, and green mountains."
         },
         {
@@ -400,7 +430,7 @@ const rawVstepTopics: VstepTopic[] = [
               id: "country-ben-environment",
               label: "Bring me a clean environment",
               labelVi: "Môi trường trong sạch",
-              notes: "have fresher air, enjoy the clean and fresh air, have many trees, rice fields, rivers",
+              notes: "fresher air (không khí trong lành hơn), enjoy clean air (thưởng thức không khí sạch), many trees (nhiều cây xanh), rivers & mountains (sông núi)",
               children: [
                 {
                   id: "country-ben-env-feel",
@@ -421,7 +451,7 @@ const rawVstepTopics: VstepTopic[] = [
               id: "country-ben-friendly",
               label: "People are more friendly, opener",
               labelVi: "Con người thân thiện, cởi mở",
-              notes: "Hospitable: welcome new neighbors. Live near each other (hỗ trợ giúp đỡ nhau, gửi trẻ khi đi xa 1-2 ngày)",
+              notes: "hospitable residents (mến khách), welcome new neighbors (chào đón hàng xóm mới), live near each other (sống gần gũi hỗ trợ lẫn nhau)",
               example: "Rural residents are very hospitable; they live near each other and always offer help."
             }
           ]
@@ -435,21 +465,21 @@ const rawVstepTopics: VstepTopic[] = [
               id: "country-draw-income",
               label: "Have lower incomes",
               labelVi: "Thu nhập thấp hơn",
-              notes: "Thu thập thấp hơn so với thành phố",
+              notes: "lower income than in the city (thu nhập thấp hơn so với thành phố)",
               example: "Country people generally have lower incomes due to fewer industrial jobs."
             },
             {
               id: "country-draw-boring",
               label: "Life is boring",
               labelVi: "Cuộc sống tẻ nhạt, nhàm chán",
-              notes: "not have many places of conveniences and pleasures (restaurants, public parks, cinemas, downtown boutiques)",
+              notes: "lack places of entertainment (thiếu khu giải trí), restaurants (nhà hàng), public parks (công viên công cộng), cinemas (rạp chiếu phim), downtown boutiques (cửa hàng thời trang trung tâm)",
               example: "Life is somewhat boring because there are no shopping malls or downtown boutiques."
             },
             {
               id: "country-draw-education",
               label: "Get access to education & technology - more difficult",
               labelVi: "Khó tiếp cận giáo dục & công nghệ",
-              notes: "Trường học, internet, công nghệ phát triển chậm hơn",
+              notes: "slower development in education and technology (trường học, internet, công nghệ phát triển chậm hơn)",
               example: "Getting access to high-quality education and modern technology is much more difficult here."
             }
           ]
@@ -481,41 +511,40 @@ const rawVstepTopics: VstepTopic[] = [
               id: "health-good-food",
               label: "Eat healthy food",
               labelVi: "Ăn thực phẩm lành mạnh",
-              notes: "eat more fruits, fish, vegetables, drink more water everyday (plenty of water - at least 2 liters)",
+              notes: "eat fruits & fish (ăn hoa quả và cá), eat vegetables (ăn rau củ), drink 2 liters of water everyday (uống 2 lít nước mỗi ngày)",
               example: "Eating healthy food such as fruits and fish, and drinking plenty of water, is highly recommended."
             },
             {
               id: "health-good-less",
-              label: "Eat less meat, fat food & junk food",
+              label: "Eat less meat, fast food & junk food",
               labelVi: "Ăn ít thịt, đồ ăn nhiều dầu mỡ & đồ ăn nhanh",
-              notes: "Hạn chế đồ ăn mỡ, đồ ăn nhanh",
-              example: "Reducing intake of fat food and junk food is crucial for a healthy heart."
+              example: "Reducing intake of fast food and junk food is crucial for a healthy heart."
             },
             {
               id: "health-good-exercise",
               label: "Exercise everyday",
               labelVi: "Tập thể dục hàng ngày",
-              notes: "manage weight, strengthen muscles and bones, reduce the risk of disease",
+              notes: "manage weight (quản lý cân nặng), strengthen muscles and bones (tăng cường cơ và xương), reduce the risk of disease (giảm nguy cơ mắc bệnh)",
               example: "Scientific research shows that regular exercise everyday can strengthen muscles and reduce disease risk."
             },
             {
               id: "health-good-checkup",
               label: "Have a regular health check-up",
               labelVi: "Khám sức khỏe định kỳ",
-              notes: "visit a doctor regularly to find out any diseases soon (tìm ra bệnh sớm, relieve stress)",
+              notes: "visit a doctor regularly (khám bác sĩ định kỳ), find out diseases early (phát hiện bệnh sớm), relieve mental stress (giảm căng thẳng tinh thần)",
               example: "Having a regular health check-up helps you find out any diseases soon and stay safe."
             },
             {
               id: "health-good-mental",
               label: "Control emotion & avoid stress",
               labelVi: "Kiểm soát cảm xúc, tránh áp lực",
-              notes: "Sound sleep (ngủ ngon), limit alcohol intake, stop smoking"
+              notes: "sound sleep (ngủ sâu giấc), limit alcohol intake (hạn chế thức uống có cồn), stop smoking (bỏ hút thuốc)"
             },
             {
               id: "health-good-benefits",
               label: "Benefits: stay healthy, keep fit, better immune system",
               labelVi: "Lợi ích: Khỏe mạnh, giữ dáng, hệ miễn dịch tốt hơn",
-              notes: "make us strong and relaxed. Not only maintain good health but also improve social life."
+              notes: "make us strong and relaxed (giúp cơ thể khỏe mạnh và thư thái), maintain good health (duy trì sức khỏe tốt), improve social life (cải thiện đời sống xã hội)"
             }
           ]
         },
@@ -528,14 +557,14 @@ const rawVstepTopics: VstepTopic[] = [
               id: "health-bad-list",
               label: "Negative habits",
               labelVi: "Các thói quen xấu",
-              notes: "eat too much unhealthy food, lack of sleep (not getting enough sleep), worrying too much, don't exercise regularly, don't check health regularly",
+              notes: "eat unhealthy food (ăn đồ ăn không lành mạnh), lack of sleep (thiếu ngủ), worry too much (lo lắng quá nhiều), lack of regular exercise (thiếu luyện tập), skip health checkups (bỏ qua khám sức khỏe)",
               example: "Lack of sleep and worrying too much can be major causes of physical and mental illnesses."
             },
             {
               id: "health-bad-problems",
               label: "Problems & Diseases",
               labelVi: "Bệnh tật và triệu chứng",
-              notes: "increase risk of health problems, cholesterol level in blood, can't focus on work, easy to get tired and ill",
+              notes: "increase health risks (tăng rủi ro sức khỏe), high cholesterol level (lượng cholesterol cao), inability to focus on work (không thể tập trung công việc), easy to get tired and ill (dễ mệt mỏi và ốm)",
               children: [
                 {
                   id: "health-bad-disease-list",
@@ -574,14 +603,14 @@ const rawVstepTopics: VstepTopic[] = [
               id: "env-good-reuse",
               label: "Reuse and recycle products",
               labelVi: "Tái sử dụng và tái chế sản phẩm",
-              notes: "Ex: bottles, plastic bags, glasses (túi nilon, chai, thủy tinh)",
+              notes: "plastic bottles (chai nhựa), plastic bags (túi nilon), glass jars (chai lọ thủy tinh)",
               example: "We should reuse and recycle plastic products to keep our oceans clean."
             },
             {
               id: "env-good-energy",
               label: "Consume less energy / save energy",
               labelVi: "Tiêu thụ ít năng lượng / tiết kiệm năng lượng",
-              notes: "Tiết kiệm điện, nước sinh hoạt",
+              notes: "save electricity and water (tiết kiệm điện và nước sinh hoạt)",
               example: "Consuming less energy in our households is a simple way to protect natural resources."
             },
             {
@@ -602,7 +631,7 @@ const rawVstepTopics: VstepTopic[] = [
           id: "env-benefits",
           label: "Benefits of protecting environment",
           labelVi: "Lợi ích khi bảo vệ môi trường",
-          notes: "protect the environment in the long term (lâu dài)",
+          notes: "long-term environmental protection (bảo vệ môi trường lâu dài)",
           children: [
             {
               id: "env-ben-resources",
@@ -626,7 +655,7 @@ const rawVstepTopics: VstepTopic[] = [
           id: "env-drawbacks",
           label: "Drawbacks / Bad habits",
           labelVi: "Thói quen xấu & Hậu quả",
-          notes: "don't reuse, consume more energy, don't sort trash, use less reusable products",
+          notes: "do not reuse products (không tái sử dụng sản phẩm), consume more energy (tiêu thụ nhiều năng lượng), do not sort trash (không phân loại rác), rarely use reusable items (ít dùng đồ tái sử dụng)",
           children: [
             {
               id: "env-draw-warming",
@@ -668,13 +697,13 @@ const rawVstepTopics: VstepTopic[] = [
       id: "hobbies-root",
       label: "Hobbies / Leisure activities",
       labelVi: "Sở thích & Hoạt động giải trí",
-      notes: "hobby = pastime = interest = recreational activity = leisure pursuit",
+      notes: "hobby = pastime (sở thích / trò tiêu khiển), interest (sự hứng thú), recreational activity (hoạt động giải trí), leisure pursuit (mục tiêu giải trí lúc rảnh)",
       children: [
         {
           id: "hob-types",
           label: "Types (Các loại sở thích)",
           labelVi: "Các hoạt động giải trí phổ biến",
-          notes: "listening to music, reading books, watching films, go shopping, playing sports (swimming, tennis, table tennis - bóng bàn, football, go jogging - đi bộ)",
+          notes: "listen to music (nghe nhạc), read books (đọc sách), watch films (xem phim), go shopping (đi mua sắm), play sports (tập thể thao), swimming (bơi lội), tennis & table tennis (quần vợt & bóng bàn), football (bóng đá), go jogging (đi chạy bộ)",
           example: "Playing sports like table tennis or going jogging are excellent free-time activities."
         },
         {
@@ -686,7 +715,7 @@ const rawVstepTopics: VstepTopic[] = [
               id: "hob-adv-happy",
               label: "Bring happiness to me and my family",
               labelVi: "Mang lại hạnh phúc",
-              notes: "make me relaxed, feel much happier, talk and share the joy with others",
+              notes: "make me relaxed (giúp tôi thư giãn), feel much happier (cảm thấy hạnh phúc hơn), talk and share joy with others (trò chuyện và chia sẻ niềm vui)",
               example: "My pastime brings happiness to my life and makes me feel much happier."
             },
             {
@@ -704,7 +733,7 @@ const rawVstepTopics: VstepTopic[] = [
               id: "hob-adv-cognitive",
               label: "Broaden knowledge & develop cognitive skills",
               labelVi: "Mở rộng kiến thức & phát triển kỹ năng nhận thức",
-              notes: "Relate to intelligence / understanding / brainpower (trí tuệ). Ex: play games develop logicality (tính logic), analyze & solve problems"
+              notes: "enhance brainpower (nâng cao trí tuệ), develop logical thinking (phát triển tư duy logic), analyze and solve problems (phân tích và giải quyết vấn đề)"
             }
           ]
         },
@@ -717,20 +746,20 @@ const rawVstepTopics: VstepTopic[] = [
               id: "hob-dis-violence",
               label: "Games contain a great deal of violence",
               labelVi: "Game chứa nhiều yếu tố bạo lực",
-              notes: "Increase aggressive feelings (hung hăng, công kích), thoughts & behaviors",
+              notes: "increase aggressive feelings (tăng cảm giác hung hăng), violent thoughts & behaviors (suy nghĩ và hành vi bạo lực)",
               example: "Many computer games contain a great deal of violence, leading to aggressive behaviors in teenagers."
             },
             {
               id: "hob-dis-neglect",
               label: "Not focus on their duties and study",
               labelVi: "Sao nhãng nghĩa vụ và học tập",
-              notes: "perform worse and worse at school (ngày càng tệ hơn ở trường)"
+              notes: "perform worse at school (kết quả học tập ngày càng sút kém)"
             },
             {
               id: "hob-sol-list",
               label: "Solutions (Giải pháp)",
               labelVi: "Cách khắc phục",
-              notes: "choose suitable computer games, be not allowed to play violent games, set limits on the length of time for playing games (giới hạn thời gian chơi game)"
+              notes: "choose suitable computer games (chọn game phù hợp), ban violent video games (cấm chơi game bạo lực), set limits on playing time (giới hạn thời gian chơi game)"
             }
           ]
         }
@@ -756,7 +785,7 @@ const rawVstepTopics: VstepTopic[] = [
           id: "job-intro",
           label: "Introduction (Giới thiệu bản thân)",
           labelVi: "Giới thiệu công việc/học hành",
-          notes: "I am a third-year student at the university of... / I work as an accountant for ABC company (nhân viên kế toán)",
+          notes: "third-year university student (sinh viên năm 3 đại học), work as an accountant (làm nhân viên kế toán)",
           example: "I am currently a third-year student majoring in Finance, and I also work as a part-time accountant."
         },
         {
@@ -768,13 +797,13 @@ const rawVstepTopics: VstepTopic[] = [
               id: "job-duties-study",
               label: "Study duties",
               labelVi: "Nhiệm vụ học tập",
-              notes: "do homework (làm BTVN), make presentations (chuẩn bị thuyết trình), join clubs (tham gia CLB), do part-time jobs at the weekends"
+              notes: "do homework (làm bài tập về nhà), make presentations (thuyết trình), join student clubs (tham gia câu lạc bộ), do part-time jobs at weekends (làm thêm vào cuối tuần)"
             },
             {
               id: "job-duties-work",
               label: "Work duties",
               labelVi: "Nhiệm vụ công việc",
-              notes: "I am in charge of... (chịu trách nhiệm về...), working with clients, solving clients' problems, contacting partners (liên hệ đối tác), collaborate with other departments to run the business smoothly (corporate)"
+              notes: "be in charge of main tasks (chịu trách nhiệm công việc chính), work with clients (làm việc với khách hàng), solve client problems (giải quyết vấn đề cho khách hàng), contact business partners (liên hệ đối tác), collaborate with other departments (phối hợp với các phòng ban)"
             }
           ]
         },
@@ -787,13 +816,13 @@ const rawVstepTopics: VstepTopic[] = [
               id: "job-opinion-like",
               label: "Like / Advantages (Thích)",
               labelVi: "Những điểm yêu thích",
-              notes: "apply the knowledge and skills of field studied, have an environment to develop skills, opportunities for promotion (cơ hội thăng tiến), co-workers are friendly & supportive"
+              notes: "apply learned knowledge and skills (áp dụng kiến thức và kỹ năng đã học), skills development environment (môi trường phát triển kỹ năng), promotion opportunities (cơ hội thăng tiến), friendly and supportive co-workers (đồng nghiệp thân thiện và hỗ trợ)"
             },
             {
               id: "job-opinion-dislike",
               label: "Dislike / Drawbacks (Ghét)",
               labelVi: "Những điểm không thích",
-              notes: "sometimes work overtime (làm việc ngoài giờ) -> less time for family, company is far from home, workload is huge -> feel tired/overloaded (mệt mỏi/quá tải)"
+              notes: "work overtime (làm việc ngoài giờ), spend less time with family (dành ít thời gian cho gia đình), long distance from home to company (công ty xa nhà), heavy workload causes exhaustion (khối lượng công việc lớn gây mệt mỏi quá tải)"
             }
           ]
         }
@@ -814,7 +843,7 @@ const rawVstepTopics: VstepTopic[] = [
       id: "crime-root",
       label: "Crime & Social Evils",
       labelVi: "Tội phạm và Tệ nạn xã hội",
-      notes: "crime = law-breaker = offender, social evils, break/violate the law, go to prison = be committed/cast into prison, victim (nạn nhân)",
+      notes: "crime & law-breakers (tội phạm và kẻ vi phạm pháp luật), social evils (tệ nạn xã hội), violate the law (vi phạm pháp luật), go to prison (đi tù / chấp hành án phạt), victim (nạn nhân)",
       children: [
         {
           id: "crime-causes",
@@ -825,21 +854,21 @@ const rawVstepTopics: VstepTopic[] = [
               id: "crime-cause-family",
               label: "Lack of parental care",
               labelVi: "Thiếu thốn tình cảm, giáo dục gia đình",
-              notes: "not be nurtured with love, care and support -> parents busy with work",
+              notes: "lack love, care and support (thiếu sự nuôi dưỡng tình thương và chăm sóc), parents busy with work (cha mẹ quá bận rộn công việc)",
               example: "Children who are not nurtured with love and care are more prone to copying bad habits."
             },
             {
               id: "crime-cause-media",
               label: "Exposure to violent media",
               labelVi: "Tiếp cận game, nội dung bạo lực",
-              notes: "get access to many violent games, copy bad things on the internet (school violence, bullying, shoving, threatening)",
+              notes: "access violent games (tiếp cận game bạo lực), copy bad internet behaviors (bắt chước điều xấu trên mạng), school violence (bạo lực học đường), bullying & shoving (bắt nạt và xô xát), threatening others (đe dọa người khác)",
               example: "Kids who get access to many violent games tend to copy bad behaviors and apply them in school."
             },
             {
               id: "crime-cause-poverty",
               label: "Poverty (Nghèo đói)",
               labelVi: "Nghèo đói dẫn đến phạm pháp",
-              notes: "not have enough means to secure a living -> commit crimes as the easiest way to get what they want",
+              notes: "lack means to secure a living (thiếu phương tiện mưu sinh), commit crimes for money (phạm tội để kiếm tiền nhanh)",
               example: "Due to deep poverty, some people commit crimes because it seems like the easiest way to secure a living."
             }
           ]
@@ -853,14 +882,14 @@ const rawVstepTopics: VstepTopic[] = [
               id: "crime-sol-parents",
               label: "Parental responsibility",
               labelVi: "Vai trò của cha mẹ",
-              notes: "spend more time with children -> control activities & behaviors, give advice, prevent from making mistakes (lầm lỗi)",
+              notes: "spend more time with children (dành nhiều thời gian hơn cho con), monitor activities & behaviors (giám sát hoạt động và hành vi), give useful advice (đưa ra lời khuyên hữu ích), prevent mistakes early (ngăn ngừa phạm sai lầm)",
               example: "Parents should spend more time with children to control their behaviors and avoid electronic devices."
             },
             {
               id: "crime-sol-punish",
               label: "Rehabilitation and punishment",
               labelVi: "Trừng phạt và cải tạo",
-              notes: "punish those who commit a crime, send criminals to a rehabilitation center -> learn to behave well, get vocational training (đào tạo nghề) -> find a job later",
+              notes: "punish offenders fairly (trừng phạt người phạm tội), send to rehabilitation centers (đưa tới trung tâm cải tạo), learn good behaviors (học cách cư xử tốt), get vocational training (đào tạo học nghề), find a job after release (tìm việc làm sau khi ra tù)",
               example: "Instead of just locking them up, we should send criminals to a rehabilitation center to get vocational training."
             }
           ]
@@ -887,7 +916,7 @@ const rawVstepTopics: VstepTopic[] = [
           id: "house-rooms",
           label: "Rooms (Cấu trúc phòng)",
           labelVi: "Các phòng & Không gian",
-          notes: "living room, bedroom, bathroom, garden, garage, balcony (ban công), toilet",
+          notes: "living room (phòng khách), bedroom (phòng ngủ), bathroom (phòng tắm), garden (sân vườn), garage (gara để xe), balcony (ban công), toilet (nhà vệ sinh)",
           example: "My house is spacious with three bedrooms, a large living room, and a small garden."
         },
         {
@@ -899,7 +928,7 @@ const rawVstepTopics: VstepTopic[] = [
               id: "house-adj-positive",
               label: "Positive atmosphere",
               labelVi: "Không gian dễ chịu",
-              notes: "large, big, spacious (rộng lớn), quiet, peaceful, pretty, beautiful",
+              notes: "large & big (rộng lớn), spacious & airy (rộng rãi và thoáng mát), quiet & peaceful (yên tĩnh và thanh bình), pretty & beautiful (đẹp đẽ)",
               example: "I love our living room because it is extremely spacious and peaceful."
             },
             {
@@ -915,13 +944,13 @@ const rawVstepTopics: VstepTopic[] = [
           id: "house-furniture",
           label: "Furniture & Decor (Trang thiết bị)",
           labelVi: "Đồ đạc và trang trí",
-          notes: "table, TV, sofa, bookshelf (kệ sách), bed, wardrobe (tủ quần áo)",
+          notes: "table (bàn), TV (tivi), sofa (ghế sofa), bookshelf (kệ sách), bed (giường ngủ), wardrobe (tủ quần áo)",
           children: [
             {
               id: "house-furn-adj",
               label: "Adjectives for furniture",
               labelVi: "Tính từ mô tả đồ nội thất",
-              notes: "Background: new, bright, ancient, modern, basic, cheap, luxurious, colorful, stylish, sophisticated. Material: wooden, plastic. Feeling: perfect, comfortable, cozy (ấm cúng). Style: delightful, dazzling, drop-dead gorgeous (tuyệt đẹp)",
+              notes: "new & bright (mới & sáng sủa), ancient & modern (cổ kính & hiện đại), basic & cheap (đơn giản & giá rẻ), luxurious & stylish (sang trọng & hợp thời trang), sophisticated wooden (nội thất gỗ tinh tế), comfortable & cozy (thoải mái & ấm cúng), delightful & dazzling (tuyệt vời & lộng lẫy), drop-dead gorgeous (tuyệt đẹp)",
               example: "In the bedroom, there is a drop-dead gorgeous wooden wardrobe that makes the room feel cozy."
             }
           ]
@@ -930,7 +959,7 @@ const rawVstepTopics: VstepTopic[] = [
           id: "house-activities",
           label: "Activities (Hoạt động tại nhà)",
           labelVi: "Các hoạt động thường ngày",
-          notes: "grow plants and flowers in the garden, read books, watch TV, welcome guests (đón khách), cook food, study, relax/unwind, do housework, play card games (Tet holiday)",
+          notes: "grow plants and flowers (trồng cây và hoa trong vườn), read books (đọc sách), watch TV (xem tivi), welcome guests (đón khách), cook food (nấu ăn), study (học tập), relax and unwind (thư giãn nghỉ ngơi), do housework (làm việc nhà), play card games (chơi đánh bài ngày Tết)",
           example: "In the evenings, I usually relax and unwind by growing plants and flowers in my garden."
         }
       ]
@@ -967,14 +996,14 @@ const rawVstepTopics: VstepTopic[] = [
               id: "tech-dis-social",
               label: "Social issues",
               labelVi: "Vấn đề xã hội & tương tác",
-              notes: "have less social interactions, increase the unemployment rate (tỉ lệ thất nghiệp)",
+              notes: "have less social interactions (ít tương tác xã hội hơn), increase unemployment rate (gia tăng tỉ lệ thất nghiệp)",
               example: "Using robots in service industries might lead to people having less social interactions."
             },
             {
               id: "tech-dis-lazy",
               label: "Make people lazier",
               labelVi: "Khiến con người lười biếng, thụ động",
-              notes: "depend too much on machines, refuse to do tasks by hand (từ chối lao động chân tay)",
+              notes: "depend too much on machines (phụ thuộc quá nhiều vào máy móc), refuse to do tasks by hand (từ chối lao động chân tay)",
               example: "Automated systems make people lazier as they depend too much on machines and refuse to do tasks by hand."
             }
           ]
@@ -983,7 +1012,7 @@ const rawVstepTopics: VstepTopic[] = [
           id: "tech-solutions",
           label: "Solutions (Giải pháp)",
           labelVi: "Cách thích nghi",
-          notes: "join social activities (team building, picnic, party), raise the sense of responsibility (nâng cao trách nhiệm), take training courses to control modern machines, update themselves with the development of science and technology",
+          notes: "join social activities (tham gia hoạt động xã hội team building picnic), raise sense of responsibility (nâng cao ý thức trách nhiệm), take machine training courses (tham gia khóa đào tạo vận hành máy móc), update scientific knowledge (cập nhật sự phát triển khoa học công nghệ)",
           example: "Workers need to update themselves with science and technology and take training courses to control modern machines."
         }
       ]
@@ -1013,28 +1042,28 @@ const rawVstepTopics: VstepTopic[] = [
               id: "lang-ben-info",
               label: "Learn and get information in the world",
               labelVi: "Học và tiếp cận thông tin toàn cầu",
-              notes: "Many books are written in English (broaden mind, enrich knowledge, search for specialized documents)",
+              notes: "broaden mind (mở rộng tầm mắt), enrich knowledge (trau dồi kiến thức), search for specialized documents (tìm kiếm tài liệu chuyên ngành)",
               example: "Since many scientific papers are written in English, learning languages helps me search for specialized documents easily."
             },
             {
               id: "lang-ben-travel",
               label: "Feel more confident when travelling abroad",
               labelVi: "Tự tin hơn khi đi du lịch nước ngoài",
-              notes: "talk easily with foreigners, work and do business without an interpreter (phiên dịch viên)",
+              notes: "talk easily with foreigners (dễ dàng trò chuyện với người nước ngoài), do business without an interpreter (làm kinh doanh không cần phiên dịch viên)",
               example: "Being bilingual makes me feel more confident when travelling abroad as I can talk easily with foreigners."
             },
             {
               id: "lang-ben-culture",
               label: "Learn more about that country",
               labelVi: "Hiểu sâu hơn về quốc gia khác",
-              notes: "culture, people, society, customs and traditions (phong tục truyền thống)",
+              notes: "culture (văn hóa), people (con người), society (xã hội), customs and traditions (phong tục và truyền thống)",
               example: "Learning Japanese allows me to understand more about their unique culture and customs."
             },
             {
               id: "lang-ben-friends",
               label: "Become friends with many people around the world",
               labelVi: "Kết bạn bốn phương",
-              notes: "Social relationships, global job opportunities",
+              notes: "expand social relationships (mở rộng quan hệ xã hội), global job opportunities (cơ hội việc làm toàn cầu)",
               example: "Speaking English opens up social relationships, helping me become friends with people worldwide."
             },
             {
@@ -1056,38 +1085,101 @@ const rawVstepTopics: VstepTopic[] = [
     title: "Machine",
     titleVi: "Thiết bị & Máy móc",
     icon: "Laptop",
-    description: "Vai trò của Máy tính/TV đối với học tập trực tuyến, công việc văn phòng nhanh chóng và giải trí tiện lợi.",
+    description: "Ưu điểm của Máy tính/TV đối with công việc, học tập, giải trí cùng các tác hại (nghiện, mỏi mắt, thụ động) và giải pháp khắc phục.",
     mindmap: {
       id: "machine-root",
       label: "Machine (Computer / Television)",
       labelVi: "Thiết bị Máy tính & Ti vi",
       children: [
         {
-          id: "mach-learning",
-          label: "Good way of learning & getting info",
-          labelVi: "Công cụ học tập & tìm kiếm tin tức",
-          notes: "read newspapers online, download lots of information, learn online (self-study), educational tool (Teach you anything)",
-          example: "The computer is an educational tool that can teach you anything that interests you through self-study."
+          id: "mach-advantages",
+          label: "Advantages / Benefits (Ưu điểm & Lợi ích)",
+          labelVi: "Lợi ích đối với học tập, công việc & giải trí",
+          children: [
+            {
+              id: "mach-learning",
+              label: "Good way of learning & getting info",
+              labelVi: "Công cụ học tập & tìm kiếm tin tức",
+              notes: "read newspapers online (đọc báo trực tuyến), download information (tải nhiều thông tin), learn online & self-study (học trực tuyến & tự học), educational tool (công cụ giáo dục giảng dạy mọi thứ)",
+              example: "The computer is an educational tool that can teach you anything that interests you through self-study."
+            },
+            {
+              id: "mach-work",
+              label: "Be convenient for work, study",
+              labelVi: "Tiện lợi cho học tập và làm việc",
+              notes: "work faster and more efficiently (làm việc nhanh và hiệu quả hơn), typing (đánh máy văn bản), printing documents (in ấn tài liệu), storing data (lưu trữ dữ liệu), save time (tiết kiệm thời gian)",
+              example: "Computers help office workers work faster and more efficiently by easily storing massive data and saving time."
+            },
+            {
+              id: "mach-entertainment",
+              label: "Be a good way to entertain",
+              labelVi: "Công cụ giải trí hiệu quả",
+              notes: "play games (chơi game giải trí), listen to music (nghe nhạc), watch movies (xem phim), join social forums to share ideas (tham gia diễn đàn mạng xã hội chia sẻ ý tưởng)",
+              example: "In my spare time, watching movies on television is a good way to entertain and relax."
+            }
+          ]
         },
         {
-          id: "mach-work",
-          label: "Be convenient for work, study",
-          labelVi: "Tiện lợi cho học tập và làm việc",
-          notes: "work faster and more efficiently, typing (đánh máy), printing documents (in ấn), storing data (lưu trữ), save your time",
-          example: "Computers help office workers work faster and more efficiently by easily storing massive data and saving time."
+          id: "mach-disadvantages",
+          label: "Disadvantages / Drawbacks (Nhược điểm & Tác hại)",
+          labelVi: "Tác hại đối với sức khỏe và lối sống",
+          children: [
+            {
+              id: "mach-dis-health",
+              label: "Negative effects on physical health",
+              labelVi: "Tác hại đối với sức khỏe thể chất",
+              notes: "eye strain & shortsightedness (mỏi mắt & cận thị), backache & neck pain (đau lưng & đau cổ), increase risk of obesity (tăng rủi ro béo phì)",
+              example: "Staring at screen for hours causes severe eye strain, shortsightedness, and backache."
+            },
+            {
+              id: "mach-dis-sedentary",
+              label: "Lead to a sedentary lifestyle & addiction",
+              labelVi: "Lối sống thụ động & nguy cơ nghiện thiết bị",
+              notes: "lack of physical exercise (thiếu vận động thể chất), waste time on screen (lãng phí thời gian xem màn hình), computer & game addiction (nghiện máy tính & trò chơi điện tử)",
+              example: "Overusing computers leads to a sedentary lifestyle with a lack of physical exercise."
+            },
+            {
+              id: "mach-dis-social",
+              label: "Reduce real-life social interaction",
+              labelVi: "Giảm tương tác xã hội trực tiếp",
+              notes: "less face-to-face communication (ít giao tiếp trực tiếp), become passive and isolated (trở nên thụ động và cô lập), ignore family and friends (bỏ mặc gia đình và bạn bè)",
+              example: "Excessive screen time reduces face-to-face communication and makes young people isolated."
+            }
+          ]
         },
         {
-          id: "mach-entertainment",
-          label: "Be a good way to entertain",
-          labelVi: "Công cụ giải trí hiệu quả",
-          notes: "play games, listen to music, watch movies, join forums/Facebook groups to share ideas",
-          example: "In my spare time, watching movies on television is a good way to entertain and relax."
+          id: "mach-solutions",
+          label: "Solutions (Biện pháp khắc phục)",
+          labelVi: "Giải pháp cân bằng việc sử dụng thiết bị",
+          children: [
+            {
+              id: "mach-sol-limit",
+              label: "Set screen time limits & take regular breaks",
+              labelVi: "Giới hạn thời gian sử dụng & nghỉ ngơi định kỳ",
+              notes: "limit daily screen time (giới hạn thời gian dùng màn hình hàng ngày), take short breaks every 45 minutes (nghỉ ngắn mỗi 45 phút), rest eyes frequently (cho mắt nghỉ ngơi thường xuyên)",
+              example: "Users should limit daily screen time and take short breaks every 45 minutes to rest their eyes."
+            },
+            {
+              id: "mach-sol-exercise",
+              label: "Balance screen time with outdoor activities",
+              labelVi: "Tăng cường vận động ngoài trời & thể thao",
+              notes: "play sports & outdoor games (chơi thể thao & trò chơi ngoài trời), hang out with friends (đi chơi cùng bạn bè), do physical exercise (tập thể dục nâng cao sức khỏe)",
+              example: "Balancing screen time with outdoor sports helps maintain good physical and mental health."
+            },
+            {
+              id: "mach-sol-parental",
+              label: "Parental guidance & house rules for kids",
+              labelVi: "Sự quản lý & quy định của cha mẹ đối với con cái",
+              notes: "control screen time for children (kiểm soát thời gian dùng thiết bị của trẻ), guide kids to healthy educational content (hướng dẫn con dùng nội dung giáo dục lành mạnh), ban devices during meals & bedtime (cấm dùng thiết bị trong bữa ăn & giờ ngủ)",
+              example: "Parents ought to control screen time for children and ban electronic devices during bedtime."
+            }
+          ]
         }
       ]
     },
     prompts: {
-      writing: "Write an essay (about 220-250 words) discussing the benefits of using computers for self-study and learning online.",
-      speaking: "VSTEP Speaking Part 3: Talk about the negative consequences of children spending too much time watching TV or playing computer games. Suggest some rules parents can set."
+      writing: "Write an essay (about 220-250 words) discussing both the advantages and disadvantages of using computers in daily life, and suggest effective solutions.",
+      speaking: "VSTEP Speaking Part 3: Talk about the negative consequences of spending too much time on computers or watching television. Suggest some effective solutions."
     }
   },
   {
@@ -1105,19 +1197,19 @@ const rawVstepTopics: VstepTopic[] = [
           id: "peop-appearance",
           label: "Appearance (Ngoại hình)",
           labelVi: "Chiều cao, tuổi tác, diện mạo",
-          notes: "Height, Age, Smile/Attractive point, look like...",
+          notes: "height descriptors (chiều cao), age descriptors (tuổi tác), attractive smile (nụ cười thu hút), overall look (diện mạo tổng thể)",
           children: [
             {
               id: "peop-app-descriptors",
               label: "Body & Age descriptors",
               labelVi: "Các đặc điểm hình thể",
-              notes: "tall, short, old, young, medium-height (chiều cao trung bình), middle-aged (trung niên)"
+              notes: "tall (cao), short (thấp / lùn), old (nhiều tuổi), young (trẻ trung), medium-height (chiều cao trung bình), middle-aged (trung niên)"
             },
             {
               id: "peop-app-face",
               label: "Face, hair & smile",
               labelVi: "Gương mặt, mái tóc & nụ cười",
-              notes: "beautiful, pretty (nữ), handsome (nam), good-looking (cả 2 giới), have short/long black hair, have a sunny smile (nụ cười tỏa nắng)"
+              notes: "beautiful & pretty (xinh đẹp - nữ), handsome (đẹp trai - nam), good-looking (ưa nhìn - cả 2 giới), have short or long black hair (có mái tóc đen ngắn hoặc dài), have a sunny smile (nụ cười tỏa nắng)"
             }
           ]
         },
@@ -1130,14 +1222,14 @@ const rawVstepTopics: VstepTopic[] = [
               id: "peop-char-good",
               label: "Good traits (Tốt bụng)",
               labelVi: "Tính cách tốt",
-              notes: "sincere = honest (thật thà), helpful, kind, nice, generous (hào phóng)",
+              notes: "sincere and honest (chân thành và thật thà), helpful (hay giúp đỡ người khác), kind and nice (tốt bụng và tử tế), generous (hào phóng rộng lượng)",
               example: "She is a very sincere and helpful colleague who always shares her work experience."
             },
             {
               id: "peop-char-bad",
               label: "Bad traits (Xấu tính)",
               labelVi: "Tính cách xấu",
-              notes: "talkative (nhiều chuyện), awful, terrible, bad, selfish (ích kỷ)"
+              notes: "talkative (nhiều chuyện), awful and terrible (tồi tệ), bad behavior (kém cỏi / xấu tính), selfish (ích kỷ)"
             }
           ]
         },
@@ -1150,13 +1242,13 @@ const rawVstepTopics: VstepTopic[] = [
               id: "peop-rel-know",
               label: "How we know each other",
               labelVi: "Quen biết nhau thế nào",
-              notes: "known each other for 10 years, first met at high school or at the company"
+              notes: "known each other for 10 years (quen biết nhau được 10 năm), first met at high school or company (gặp nhau lần đầu ở trường cấp 3 hoặc công ty)"
             },
             {
               id: "peop-rel-act",
               label: "Common activities (Hoạt động thường gặp)",
               labelVi: "Hoạt động chung",
-              notes: "often meet at the coffee shop, go shopping together, talk and share about life, study, work, family...",
+              notes: "meet at coffee shops (gặp nhau ở quán cà phê), go shopping together (cùng nhau đi mua sắm), talk and share about life (trò chuyện chia sẻ về cuộc sống), study and work together (cùng học tập và làm việc), share family stories (chia sẻ chuyện gia đình)",
               example: "We often meet at the coffee shop at weekends to talk and share about our careers."
             }
           ]
@@ -1188,14 +1280,14 @@ const rawVstepTopics: VstepTopic[] = [
               id: "hol-likes-scenery",
               label: "The scenery is magnificent",
               labelVi: "Phong cảnh hùng vĩ, hoành tráng",
-              notes: "there are breathtaking views of the mountains and rivers, enjoy fresh and pure air (không khí trong lành)",
+              notes: "breathtaking views of mountains and rivers (cảnh đẹp ngoạn mục của sông núi), enjoy fresh and pure air (thưởng thức không khí trong lành)",
               example: "The scenery there is magnificent with breathtaking views of the mountains and rivers."
             },
             {
               id: "hol-likes-food",
               label: "The local cuisine is fresh & delicious",
               labelVi: "Ẩm thực địa phương tươi ngon và rẻ",
-              notes: "#the local food, but not expensive, have a variety of food: crab (cua), lobsters (tôm hùm), seashells (sò/ốc)",
+              notes: "delicious local food (đặc sản địa phương tươi ngon), reasonable prices (giá cả hợp lý), crabs (cua), lobsters (tôm hùm), seashells (sò và ốc)",
               example: "The local cuisine is fresh and delicious but not expensive; they serve a wonderful variety of seafood."
             },
             {
@@ -1209,7 +1301,7 @@ const rawVstepTopics: VstepTopic[] = [
           id: "hol-activities",
           label: "Activities (Các hoạt động tham gia)",
           labelVi: "Hoạt động giải trí",
-          notes: "swim in the blue and clear seawater (bơi ở biển xanh sạch), do sunbathing on the soft sand beach under yellow and warm sunshine (tắm nắng bãi cát mịn dưới nắng ấm), visit Ba Na hills or sail on a board to Cu Lao Cham, play football on the beach, build sandcastles, watch the sunrise/sunset (ngắm hoàng hôn/bình minh)",
+          notes: "swim in blue seawater (bơi ở biển xanh sạch), do sunbathing on soft sand (tắm nắng trên bãi cát mịn), visit famous tourist spots (tham quan các danh lam thắng cảnh), play football on the beach (chơi đá bóng trên bãi biển), build sandcastles (xây lâu đài cát), watch the sunrise and sunset (ngắm bình minh và hoàng hôn)",
           example: "I spent my mornings swimming in the blue, clear seawater and building sandcastles with my friends."
         }
       ]
