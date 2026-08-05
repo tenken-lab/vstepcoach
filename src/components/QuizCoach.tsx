@@ -27,6 +27,7 @@ import {
   Award
 } from "lucide-react";
 import { VstepTopic, MindmapNode } from "../data/topics";
+import { vietnamesePromptMap, getSmartVietnamesePrompt } from "../data/vietnamesePrompts";
 
 interface QuizCoachProps {
   topic: VstepTopic;
@@ -76,30 +77,7 @@ interface AIEssayResult {
   modelAnswer: string;
 }
 
-const vietnamesePromptMap: Record<string, string> = {
-  "public transport": "Tôi lựa chọn phương tiện giao thông công cộng khi đi làm. Nó giúp tôi tiết kiệm chi phí đi lại.",
-  "Public transport": "Tôi lựa chọn phương tiện giao thông công cộng khi đi làm. Nó giúp tôi tiết kiệm chi phí đi lại.",
-  "Be safer": "Sử dụng tàu hỏa thường được coi là an toàn hơn vì đường sắt có ít tai nạn hơn.",
-  "be safer": "Sử dụng tàu hỏa thường được coi là an toàn hơn vì đường sắt có ít tai nạn hơn.",
-  "Avoid getting wet, dust": "Đi lại bằng xe buýt giúp tôi tránh bị ướt và khói bụi trong những trận bão lớn.",
-  "avoid getting wet, dust": "Đi lại bằng xe buýt giúp tôi tránh bị ướt và khói bụi trong những trận bão lớn.",
-  "Listen to music & read books": "Tôi có thể nghe nhạc hoặc đọc sách trong lúc đi tàu điện ngầm.",
-  "listen to music & read books": "Tôi có thể nghe nhạc hoặc đọc sách trong lúc đi tàu điện ngầm.",
-  "Take a nap": "Đi xe khách cho phép tôi chợp mắt một lúc sau một ngày làm việc mệt mỏi.",
-  "take a nap": "Đi xe khách cho phép tôi chợp mắt một lúc sau một ngày làm việc mệt mỏi.",
-  "Enjoy the roadside view": "Thật thú vị khi được ngắm cảnh ven đường và quan sát hoạt động thường ngày của mọi người.",
-  "enjoy the roadside view": "Thật thú vị khi được ngắm cảnh ven đường và quan sát hoạt động thường ngày của mọi người.",
-  "Travel wherever I want and whenever I want": "Sở hữu xe riêng giúp tôi đi bất cứ nơi nào tôi muốn và bất kỳ lúc nào.",
-  "travel wherever i want and whenever i want": "Sở hữu xe riêng giúp tôi đi bất cứ nơi nào tôi muốn và bất kỳ lúc nào.",
-  "Cheap (bus)": "Giá vé xe buýt rất rẻ, và học sinh sinh viên còn được giảm giá vé khi xuất trình thẻ.",
-  "cheap (bus)": "Giá vé xe buýt rất rẻ, và học sinh sinh viên còn được giảm giá vé khi xuất trình thẻ.",
-  "Have a higher chance of getting diseases": "Hành khách đối mặt với nguy cơ mắc các bệnh truyền nhiễm cao hơn khi ngồi trong các toa xe công cộng đông đúc.",
-  "have a higher chance of getting diseases": "Hành khách đối mặt với nguy cơ mắc các bệnh truyền nhiễm cao hơn khi ngồi trong các toa xe công cộng đông đúc.",
-  "Be pretty crowded at rush hours": "Xe buýt công cộng thường khá đông đúc vào các khung giờ cao điểm.",
-  "be pretty crowded at rush hours": "Xe buýt công cộng thường khá đông đúc vào các khung giờ cao điểm.",
-  "Air conditioner is broken down / Xe xuống cấp": "Nhiều hệ thống giao thông công cộng đang xuống cấp với hệ thống điều hòa bị hỏng.",
-  "air conditioner is broken down / xe xuống cấp": "Nhiều hệ thống giao thông công cộng đang xuống cấp với hệ thống điều hòa bị hỏng.",
-};
+
 
 export default function QuizCoach({ topic }: QuizCoachProps) {
   // Trích xuất từ vựng từ sơ đồ tư duy cho thử thách từ vựng
@@ -412,7 +390,7 @@ export default function QuizCoach({ topic }: QuizCoachProps) {
     }
 
     const wordKey = activeVocab.word.trim();
-    const staticMatch = vietnamesePromptMap[wordKey] || vietnamesePromptMap[wordKey.toLowerCase()];
+    const staticMatch = vietnamesePromptMap[wordKey] || vietnamesePromptMap[wordKey.toLowerCase()] || vietnamesePromptMap[activeVocab.id];
     if (staticMatch) {
       setVietnameseHint(staticMatch);
       return;
@@ -428,17 +406,22 @@ export default function QuizCoach({ topic }: QuizCoachProps) {
       })
         .then((res) => res.json())
         .then((data) => {
-          setVietnameseHint(data.translated || `Hãy viết một câu tiếng Anh sử dụng cụm từ "${activeVocab.word}".`);
+          const translated = data.translated;
+          if (translated && !translated.includes("Hãy đặt") && !translated.includes("Hãy viết")) {
+            setVietnameseHint(translated);
+          } else {
+            setVietnameseHint(getSmartVietnamesePrompt(activeVocab));
+          }
         })
         .catch((err) => {
           console.error(err);
-          setVietnameseHint(`Hãy viết một câu tiếng Anh sử dụng cụm từ "${activeVocab.word}".`);
+          setVietnameseHint(getSmartVietnamesePrompt(activeVocab));
         })
         .finally(() => {
           setIsLoadingHint(false);
         });
     } else {
-      setVietnameseHint(`Hãy đặt một câu tiếng Anh có chứa cụm từ "${activeVocab.word}".`);
+      setVietnameseHint(getSmartVietnamesePrompt(activeVocab));
     }
   }, [selectedVocabIndex, activeVocab]);
 

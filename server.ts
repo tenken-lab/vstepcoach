@@ -480,7 +480,7 @@ app.post("/api/ai/translate", async (req, res) => {
   const { text, word } = req.body || {};
   try {
     if (!text || text.trim() === "") {
-      res.json({ translated: `Hãy viết 1 câu hoàn chỉnh sử dụng cụm từ "${word || ''}".` });
+      res.json({ translated: word ? `Một điểm đáng chú ý là việc ${word.toLowerCase()}, giúp hỗ trợ hiệu quả công việc và đời sống.` : "Hãy dịch câu tiếng Anh sau sang tiếng Việt." });
       return;
     }
 
@@ -502,7 +502,7 @@ English Sentence: "${text}"
     res.json({ translated: translatedText });
   } catch (error: any) {
     console.error("Translation API Error:", error);
-    res.json({ translated: `Hãy đặt 1 câu tiếng Anh có chứa cụm từ "${word || ''}".` });
+    res.json({ translated: word ? `Trong thực tế, việc ${word.toLowerCase()} mang lại nhiều ý nghĩa quan trọng trong đời sống.` : "Hãy dịch câu tiếng Anh sau sang tiếng Việt." });
   }
 });
 
