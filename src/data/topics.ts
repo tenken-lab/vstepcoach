@@ -775,24 +775,24 @@ const rawVstepTopics: VstepTopic[] = [
     title: "Job / Study",
     titleVi: "Công việc & Học tập",
     icon: "Briefcase",
-    description: "Giới thiệu bản thân là sinh viên/người đi làm, các nhiệm vụ chính, ưu và nhược điểm của môi trường làm việc.",
+    description: "Nhiệm vụ học tập và công việc, cùng các tác động tích cực và tiêu cực của các hoạt động khác tới việc học tập.",
     mindmap: {
       id: "job-study-root",
-      label: "Job / Study",
-      labelVi: "Công việc / Học tập",
+      label: "Job & Study in Daily Life",
+      labelVi: "Công việc & Học tập trong đời sống",
       children: [
         {
-          id: "job-intro",
-          label: "Introduction (Giới thiệu bản thân)",
-          labelVi: "Giới thiệu công việc/học hành",
-          notes: "third-year university student (sinh viên năm 3 đại học), work as an accountant (làm nhân viên kế toán)",
-          example: "I am currently a third-year student majoring in Finance, and I also work as a part-time accountant."
-        },
-        {
-          id: "job-duties",
-          label: "Duties & Responsibilities (Nhiệm vụ)",
-          labelVi: "Nhiệm vụ chính",
+          id: "job-intro-duties",
+          label: "Introduction & Daily Duties",
+          labelVi: "Giới thiệu & Nhiệm vụ hàng ngày",
           children: [
+            {
+              id: "job-intro",
+              label: "Introduction (Giới thiệu bản thân)",
+              labelVi: "Giới thiệu công việc/học hành",
+              notes: "third-year university student (sinh viên năm 3 đại học), work as an accountant (làm nhân viên kế toán)",
+              example: "I am currently a third-year student majoring in Finance, and I also work as a part-time accountant."
+            },
             {
               id: "job-duties-study",
               label: "Study duties",
@@ -808,29 +808,186 @@ const rawVstepTopics: VstepTopic[] = [
           ]
         },
         {
-          id: "job-opinion",
-          label: "Opinions (Cảm nhận)",
-          labelVi: "Suy nghĩ của bản thân",
+          id: "job-positive-impacts",
+          label: "Positive Impacts & Benefits (Tác động tích cực)",
+          labelVi: "Tác động tích cực của các hoạt động tới việc học & phát triển",
           children: [
             {
-              id: "job-opinion-like",
-              label: "Like / Advantages (Thích)",
-              labelVi: "Những điểm yêu thích",
-              notes: "apply learned knowledge and skills (áp dụng kiến thức và kỹ năng đã học), skills development environment (môi trường phát triển kỹ năng), promotion opportunities (cơ hội thăng tiến), friendly and supportive co-workers (đồng nghiệp thân thiện và hỗ trợ)"
+              id: "job-pos-experience-career",
+              label: "Experience & Future Career",
+              labelVi: "Kinh nghiệm thực tế & Định hướng nghề nghiệp",
+              children: [
+                {
+                  id: "job-pos-gain-exp",
+                  label: "gain real-world experience",
+                  labelVi: "có được kinh nghiệm thực tế",
+                  example: "Doing part-time jobs helps students gain real-world experience before graduating."
+                },
+                {
+                  id: "job-pos-choose-career",
+                  label: "choose the right future career",
+                  labelVi: "chọn đúng nghề nghiệp tương lai",
+                  example: "Trying different internships allows young adults to choose the right future career."
+                },
+                {
+                  id: "job-pos-better-cv",
+                  label: "make the CV look better",
+                  labelVi: "làm cho hồ sơ xin việc đẹp hơn",
+                  example: "Volunteering activities and certificates make the CV look better to recruiters."
+                },
+                {
+                  id: "job-pos-open-mind",
+                  label: "open the mind to new ideas",
+                  labelVi: "mở mang đầu óc với những ý tưởng mới",
+                  example: "Interacting with different people helps open the mind to new ideas and perspectives."
+                }
+              ]
             },
             {
-              id: "job-opinion-dislike",
-              label: "Dislike / Drawbacks (Ghét)",
-              labelVi: "Những điểm không thích",
-              notes: "work overtime (làm việc ngoài giờ), spend less time with family (dành ít thời gian cho gia đình), long distance from home to company (công ty xa nhà), heavy workload causes exhaustion (khối lượng công việc lớn gây mệt mỏi quá tải)"
+              id: "job-pos-skills-learning",
+              label: "Soft Skills & Independent Learning",
+              labelVi: "Kỹ năng mềm & Phương pháp tự học",
+              children: [
+                {
+                  id: "job-pos-soft-skills",
+                  label: "improve important soft skills",
+                  labelVi: "cải thiện các kỹ năng mềm quan trọng",
+                  example: "Group projects help undergraduates improve important soft skills like teamwork and negotiation."
+                },
+                {
+                  id: "job-pos-problem-solving",
+                  label: "improve problem-solving skills",
+                  labelVi: "cải thiện kỹ năng giải quyết vấn đề",
+                  example: "Overcoming workplace challenges will improve problem-solving skills remarkably."
+                },
+                {
+                  id: "job-pos-study-independently",
+                  label: "learn how to study independently",
+                  labelVi: "học cách tự học một mình",
+                  example: "Self-paced online courses encourage learners to learn how to study independently."
+                },
+                {
+                  id: "job-pos-materials-online",
+                  label: "find study materials easily online",
+                  labelVi: "tìm tài liệu học tập dễ dàng trên mạng",
+                  example: "With high-speed internet, students can find study materials easily online for their assignments."
+                }
+              ]
+            },
+            {
+              id: "job-pos-networking-mindset",
+              label: "Networking & Study Motivation",
+              labelVi: "Mở rộng quan hệ & Động lực học tập",
+              children: [
+                {
+                  id: "job-pos-make-friends",
+                  label: "make friends and meet helpful people",
+                  labelVi: "kết bạn và gặp gỡ những người có ích",
+                  example: "Joining academic clubs allows you to make friends and meet helpful people."
+                },
+                {
+                  id: "job-pos-feel-refreshed",
+                  label: "feel refreshed and ready to study",
+                  labelVi: "cảm thấy sảng khoái và sẵn sàng học tập",
+                  example: "Taking active breaks makes you feel refreshed and ready to study with high energy."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "job-negative-impacts",
+          label: "Negative Impacts & Drawbacks (Tác động tiêu cực)",
+          labelVi: "Tác động tiêu cực tới việc học tập & sinh hoạt",
+          children: [
+            {
+              id: "job-neg-academic-decline",
+              label: "Academic Setbacks & Distractions",
+              labelVi: "Sa sút học tập & Mất tập trung",
+              children: [
+                {
+                  id: "job-neg-fall-behind",
+                  label: "fall behind in school",
+                  labelVi: "bị tụt lại phía sau trong việc học",
+                  example: "Working too many evening shifts can cause students to fall behind in school."
+                },
+                {
+                  id: "job-neg-catching-up",
+                  label: "have difficulty catching up with lessons",
+                  labelVi: "gặp khó khăn khi theo kịp bài học",
+                  example: "Missing lectures often leads to having difficulty catching up with lessons."
+                },
+                {
+                  id: "job-neg-distracted",
+                  label: "get distracted by social media and phones",
+                  labelVi: "bị phân tâm bởi mạng xã hội và điện thoại",
+                  example: "Constant notifications make students get distracted by social media and phones during self-study."
+                },
+                {
+                  id: "job-neg-forget-basic",
+                  label: "forget basic knowledge",
+                  labelVi: "quên kiến thức cơ bản",
+                  example: "Without continuous practice, learners easily forget basic knowledge of foundation subjects."
+                }
+              ]
+            },
+            {
+              id: "job-neg-stress-time",
+              label: "Stress, Exhaustion & Poor Time Management",
+              labelVi: "Căng thẳng, Kiệt sức & Khó quản lý thời gian",
+              children: [
+                {
+                  id: "job-neg-tired-stressed",
+                  label: "feel tired and stressed from too much work",
+                  labelVi: "cảm thấy mệt mỏi và căng thẳng vì quá nhiều việc",
+                  example: "Balancing multiple tasks makes young people feel tired and stressed from too much work."
+                },
+                {
+                  id: "job-neg-manage-time",
+                  label: "find it hard to manage time",
+                  labelVi: "thấy khó quản lý thời gian",
+                  example: "Many freshmen find it hard to manage time between study and personal hobbies."
+                },
+                {
+                  id: "job-neg-lose-interest",
+                  label: "lose interest in going back to school",
+                  labelVi: "mất hứng thú với việc quay lại trường học",
+                  example: "Earning money early may cause some youth to lose interest in going back to school."
+                }
+              ]
+            },
+            {
+              id: "job-neg-dependence-cheating",
+              label: "Over-dependence, Cheating & Financial Burden",
+              labelVi: "Lệ thuộc, Gian lận thi cử & Tiêu tốn tiền bạc",
+              children: [
+                {
+                  id: "job-neg-rely-internet",
+                  label: "rely too much on the internet and apps",
+                  labelVi: "phụ thuộc quá nhiều vào internet và ứng dụng",
+                  example: "Students who rely too much on the internet and apps may lose critical thinking ability."
+                },
+                {
+                  id: "job-neg-cheat-tests",
+                  label: "cheat more easily on tests",
+                  labelVi: "gian lận bài kiểm tra dễ dàng hơn",
+                  example: "Using online shortcuts allows dishonest pupils to cheat more easily on tests."
+                },
+                {
+                  id: "job-neg-spend-money",
+                  label: "spend too much money",
+                  labelVi: "tiêu tốn quá nhiều tiền",
+                  example: "Unplanned leisure activities make college students spend too much money."
+                }
+              ]
             }
           ]
         }
       ]
     },
     prompts: {
-      writing: "Write an essay (about 220-250 words) discussing the advantages and disadvantages of taking a part-time job while studying at university.",
-      speaking: "VSTEP Speaking Part 3: What are the factors that make a job satisfying? Discuss the relative importance of salary, working environment, and career opportunities."
+      writing: "Write an essay (about 220-250 words) discussing the positive and negative impacts of doing a part-time job or extra activities on students' academic performance.",
+      speaking: "VSTEP Speaking Part 3: Discuss how extracurricular activities and part-time jobs affect students' study habits. Are the real-world experiences worth the potential distractions?"
     }
   },
   {
@@ -972,54 +1129,246 @@ const rawVstepTopics: VstepTopic[] = [
   {
     id: "technology",
     title: "Technology",
-    titleVi: "Công nghệ (Robot)",
+    titleVi: "Công nghệ trong đời sống",
     icon: "Cpu",
-    description: "Tác động của Robot, tự động hóa đến việc làm, sự thụ động của con người và giải pháp thích nghi.",
+    description: "Lợi ích kết nối, học tập và hiệu suất của công nghệ, cùng các tác hại (cô lập, mất tập trung, thất nghiệp, bảo mật) và giải pháp sử dụng an toàn.",
     mindmap: {
       id: "tech-root",
-      label: "Technology & Robots",
-      labelVi: "Robot và Công nghệ tự động hóa",
+      label: "Technology in Daily Life",
+      labelVi: "Công nghệ trong đời sống hiện đại",
       children: [
         {
           id: "tech-advantages",
-          label: "Advantages (Thuận lợi)",
-          labelVi: "Lợi ích của robot",
-          notes: "perform faster and more efficiently (làm việc nhanh và hiệu quả hơn)",
-          example: "Modern robots can perform complex manufacturing tasks much faster and more efficiently."
+          label: "Advantages / Benefits (Ưu điểm & Lợi ích)",
+          labelVi: "Lợi ích đối với kết nối, học tập & công việc",
+          children: [
+            {
+              id: "tech-adv-connection",
+              label: "Global Communication & Connection",
+              labelVi: "Giao tiếp toàn cầu & Giữ liên lạc",
+              children: [
+                {
+                  id: "tech-adv-stay-connected",
+                  label: "stay connected with people around the world",
+                  labelVi: "giữ liên lạc với mọi người trên khắp thế giới",
+                  example: "Modern technology helps us stay connected with people around the world effortlessly."
+                },
+                {
+                  id: "tech-adv-keep-touch",
+                  label: "keep in touch with friends and family through social media",
+                  labelVi: "giữ liên lạc với bạn bè và gia đình thông qua mạng xã hội",
+                  example: "It is easy to keep in touch with friends and family through social media even when living abroad."
+                },
+                {
+                  id: "tech-adv-communicate-instantly",
+                  label: "communicate instantly with people far away through phones and the internet",
+                  labelVi: "giao tiếp ngay lập tức với những người ở xa thông qua điện thoại và internet",
+                  example: "We can communicate instantly with people far away through phones and the internet without delay."
+                }
+              ]
+            },
+            {
+              id: "tech-adv-learning-info",
+              label: "Information Access & Online Learning",
+              labelVi: "Tiếp cận thông tin & Học tập trực tuyến",
+              children: [
+                {
+                  id: "tech-adv-instant-access",
+                  label: "get instant access to information",
+                  labelVi: "nhận quyền truy cập thông tin ngay lập tức",
+                  example: "Search engines allow students to get instant access to information for their research."
+                },
+                {
+                  id: "tech-adv-learn-anywhere",
+                  label: "learn anything, anytime, anywhere with smartphones and computers",
+                  labelVi: "học bất cứ điều gì, bất cứ lúc nào, ở bất cứ đâu bằng điện thoại thông minh và máy tính",
+                  example: "Digital platforms enable people to learn anything, anytime, anywhere with smartphones and computers."
+                }
+              ]
+            },
+            {
+              id: "tech-adv-productivity-fun",
+              label: "Work Productivity & Entertainment",
+              labelVi: "Năng suất công việc & Lựa chọn giải trí",
+              children: [
+                {
+                  id: "tech-adv-complete-tasks",
+                  label: "complete tasks faster and more efficiently",
+                  labelVi: "hoàn thành công việc nhanh hơn và hiệu quả hơn",
+                  example: "Modern software tools help employees complete tasks faster and more efficiently."
+                },
+                {
+                  id: "tech-adv-entertainment-options",
+                  label: "have many entertainment options",
+                  labelVi: "có nhiều lựa chọn giải trí",
+                  example: "Smart devices ensure that users have many entertainment options after a busy working day."
+                }
+              ]
+            }
+          ]
         },
         {
           id: "tech-disadvantages",
-          label: "Disadvantages (Bất lợi)",
-          labelVi: "Tác động tiêu cực",
+          label: "Disadvantages / Drawbacks (Nhược điểm & Tác hại)",
+          labelVi: "Tác hại đối với giao tiếp, sức khỏe, việc làm & bảo mật",
           children: [
             {
-              id: "tech-dis-social",
-              label: "Social issues",
-              labelVi: "Vấn đề xã hội & tương tác",
-              notes: "have less social interactions (ít tương tác xã hội hơn), increase unemployment rate (gia tăng tỉ lệ thất nghiệp)",
-              example: "Using robots in service industries might lead to people having less social interactions."
+              id: "tech-dis-social-isolation",
+              label: "Social Isolation & Over-dependence",
+              labelVi: "Cô lập xã hội & Sự phụ thuộc quá mức",
+              children: [
+                {
+                  id: "tech-dis-reduce-interaction",
+                  label: "reduce face-to-face interactions",
+                  labelVi: "giảm tương tác trực tiếp",
+                  example: "Spending too much time on digital devices can reduce face-to-face interactions with relatives."
+                },
+                {
+                  id: "tech-dis-lonely-disconnected",
+                  label: "make us feel lonely and disconnected",
+                  labelVi: "khiến chúng ta cảm thấy cô đơn và mất kết nối",
+                  example: "Excessive time spent in virtual worlds can make us feel lonely and disconnected from reality."
+                },
+                {
+                  id: "tech-dis-rely-too-much",
+                  label: "rely too much on technology",
+                  labelVi: "phụ thuộc quá nhiều vào công nghệ",
+                  example: "People who rely too much on technology often struggle to perform everyday tasks independently."
+                },
+                {
+                  id: "tech-dis-avoid-manually",
+                  label: "avoid doing things manually",
+                  labelVi: "tránh làm mọi việc theo cách thủ công",
+                  example: "Automated systems make young people avoid doing things manually and become inactive."
+                }
+              ]
             },
             {
-              id: "tech-dis-lazy",
-              label: "Make people lazier",
-              labelVi: "Khiến con người lười biếng, thụ động",
-              notes: "depend too much on machines (phụ thuộc quá nhiều vào máy móc), refuse to do tasks by hand (từ chối lao động chân tay)",
-              example: "Automated systems make people lazier as they depend too much on machines and refuse to do tasks by hand."
+              id: "tech-dis-distraction-health",
+              label: "Distractions & Physical Health",
+              labelVi: "Mất tập trung & Tác hại sức khỏe",
+              children: [
+                {
+                  id: "tech-dis-cause-distractions",
+                  label: "cause distractions",
+                  labelVi: "gây mất tập trung",
+                  example: "Frequent smartphone notifications cause distractions during important study sessions."
+                },
+                {
+                  id: "tech-dis-lose-focus",
+                  label: "lose focus on important tasks",
+                  labelVi: "mất tập trung vào các nhiệm vụ quan trọng",
+                  example: "Checking social feeds causes employees to lose focus on important tasks."
+                },
+                {
+                  id: "tech-dis-staring-screens",
+                  label: "staring at screens for long periods",
+                  labelVi: "nhìn chằm chằm vào màn hình trong thời gian dài",
+                  example: "Staring at screens for long periods can harm your posture and cause severe headaches."
+                },
+                {
+                  id: "tech-dis-eye-strain",
+                  label: "lead to eye strain",
+                  labelVi: "dẫn đến mỏi mắt",
+                  example: "Working on bright monitors late into the night can lead to eye strain and blurred vision."
+                }
+              ]
+            },
+            {
+              id: "tech-dis-job-privacy",
+              label: "Unemployment & Privacy Risks",
+              labelVi: "Nguy cơ thất nghiệp do AI & Rủi ro quyền riêng tư",
+              children: [
+                {
+                  id: "tech-dis-unemployment-rate",
+                  label: "increase the unemployment rate",
+                  labelVi: "làm tăng tỷ lệ thất nghiệp",
+                  example: "Rapid automation in manufacturing could increase the unemployment rate for manual workers."
+                },
+                {
+                  id: "tech-dis-ai-replace",
+                  label: "AI can replace human workers in certain jobs",
+                  labelVi: "AI có thể thay thế con người trong một số công việc",
+                  example: "Advanced AI can replace human workers in certain jobs like data processing and routine translation."
+                },
+                {
+                  id: "tech-dis-privacy-concerns",
+                  label: "privacy concerns",
+                  labelVi: "lo ngại về quyền riêng tư",
+                  example: "The collection of personal data online raises significant privacy concerns among netizens."
+                },
+                {
+                  id: "tech-dis-personal-data-accessed",
+                  label: "personal data can be accessed or shared without consent",
+                  labelVi: "dữ liệu cá nhân có thể bị truy cập hoặc chia sẻ mà không có sự đồng ý",
+                  example: "In insecure networks, personal data can be accessed or shared without consent."
+                }
+              ]
             }
           ]
         },
         {
           id: "tech-solutions",
-          label: "Solutions (Giải pháp)",
-          labelVi: "Cách thích nghi",
-          notes: "join social activities (tham gia hoạt động xã hội team building picnic), raise sense of responsibility (nâng cao ý thức trách nhiệm), take machine training courses (tham gia khóa đào tạo vận hành máy móc), update scientific knowledge (cập nhật sự phát triển khoa học công nghệ)",
-          example: "Workers need to update themselves with science and technology and take training courses to control modern machines."
+          label: "Solutions (Biện pháp khắc phục & Giải pháp)",
+          labelVi: "Giải pháp sử dụng công nghệ thông minh & An toàn",
+          children: [
+            {
+              id: "tech-sol-balanced-usage",
+              label: "Balanced & Mindful Usage",
+              labelVi: "Sử dụng cân bằng & Có ý thức",
+              children: [
+                {
+                  id: "tech-sol-use-wisely",
+                  label: "learn how to use technology wisely",
+                  labelVi: "học cách sử dụng công nghệ một cách thông minh",
+                  example: "Students should learn how to use technology wisely to serve their educational goals."
+                },
+                {
+                  id: "tech-sol-limit-screen-time",
+                  label: "limit screen time",
+                  labelVi: "hạn chế thời gian sử dụng màn hình",
+                  example: "Parents ought to limit screen time for their children and encourage more physical exercise."
+                }
+              ]
+            },
+            {
+              id: "tech-sol-security-protection",
+              label: "Cybersecurity & Data Protection",
+              labelVi: "Bảo mật thông tin & An toàn không gian mạng",
+              children: [
+                {
+                  id: "tech-sol-protect-info",
+                  label: "protect personal information",
+                  labelVi: "bảo vệ thông tin cá nhân",
+                  example: "It is crucial to protect personal information when creating online accounts."
+                },
+                {
+                  id: "tech-sol-create-passwords",
+                  label: "create strong passwords",
+                  labelVi: "tạo mật khẩu mạnh",
+                  example: "Security experts recommend users create strong passwords with complex characters."
+                },
+                {
+                  id: "tech-sol-install-antivirus",
+                  label: "install antivirus software",
+                  labelVi: "cài đặt phần mềm diệt virus",
+                  example: "Always install antivirus software to defend computers from harmful malware and spyware."
+                },
+                {
+                  id: "tech-sol-cautious-links",
+                  label: "be cautious of suspicious links",
+                  labelVi: "cẩn thận với các liên kết đáng ngờ",
+                  example: "Internet users must be cautious of suspicious links to avoid phishing scams and data theft."
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     prompts: {
-      writing: "Write an essay (about 220-250 words) discussing whether robots will completely replace human workers in the future and what solutions humans should take.",
-      speaking: "VSTEP Speaking Part 3: Discuss the pros and cons of using smart technology and artificial intelligence in schools. Is it beneficial for student development?"
+      writing: "Write an essay (about 220-250 words) discussing the benefits and drawbacks of modern technology in daily life, and suggest solutions to use it safely and effectively.",
+      speaking: "VSTEP Speaking Part 3: Discuss how technology influences our communication and work. Is it making people more isolated or more connected? Suggest some solutions."
     }
   },
   {
