@@ -33,7 +33,7 @@ export const ESSAY_TEMPLATES: Record<EssayType, EssayTemplateInfo> = {
   },
   agree_disagree: {
     id: "agree_disagree",
-    title: "Dạng Thảo luận 2 chiều (Agree - Disagree / Discussion)",
+    title: "Dạng thảo luận 2 quan điểm (Discussion-Opinion)",
     description: "Thảo luận về hai quan điểm trái chiều và đưa ra ý kiến cá nhân.",
     inputs: [
       {
